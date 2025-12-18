@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  medisheba_db:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: medisheba
+    volumes:
+      - ./medisheba.sql:/docker-entrypoint-initdb.d/medisheba.sql:ro
+    ports:
+      - "3306:3306"
+  medisheba_web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "mysql://root:root@db/medisheba"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app

@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: medlife2
+    volumes:
+      - ./medlife2.sql:/docker-entrypoint-initdb.d/medlife2.sql:ro
+    ports:
+      - "3306:3306"
+  web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "mysql://root:root@db/medlife2"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app

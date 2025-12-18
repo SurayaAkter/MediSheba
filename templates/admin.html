@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block Dashboard_active %}active{% endblock %}
+{% block body %}
+
+
+
+<table>
+    <tr>
+        <th>User ID</th>
+        <th>Email</th>
+        <th>User Type</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.UserID }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.user_type }}</td>
+        <td>
+            {% if user.user_type != 'admin' %}
+            <a href="/remove_user/{{ user.UserID }}">Remove</a> |
+            <a href="/edit_user_type/{{ user.UserID }}">Edit User Type</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

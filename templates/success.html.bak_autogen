@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+</head>
+<body>
+    <h1>Payment was successful!</h1>
+    <p>{{ payment_info }}</p>
+    <a href="{{ url_for('cart') }}" class="button">Cart</a>
+    <!-- You can display additional information as needed -->
+</body>
+</html>

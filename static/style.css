@@ -1,0 +1,92 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+  .container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  form {
+    margin-top: 20px;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+
+  /* Continue your existing CSS styles here */
+
+/* Styles for the select element */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the login button */
+input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 12px 20px;
+}
+
+/* Additional styles for the link */
+a {
+  text-decoration: none;
+  color: #000;
+  display: block; /* Make the link a block element to occupy the full width */
+  text-align: center; /* Center-align the link text */
+  margin-top: 10px; /* Add some space above the link */
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Container style */
+.container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/* AUTO-INJECTED MediSheba styles */
+.ms-navbar { background: #0066cc; color: white; padding: 10px 0; }
+.ms-container { max-width: 1100px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding:0 15px; }
+.ms-brand { display:flex; align-items:center; text-decoration:none; color:white; }
+.ms-logo { height:40px; width:40px; object-fit:cover; border-radius:6px; margin-right:10px; }
+.ms-title { font-size:20px; font-weight:700; }
+.ms-links a { color:white; margin-left:15px; text-decoration:none; font-weight:600; }
+.ms-doctors { padding:40px 0; background:#f9f9f9; margin-top:20px; }
+.ms-doctors h2 { text-align:center; margin-bottom:20px; }
+.ms-doctor-grid { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+.ms-doctor-card { background:white; border:1px solid #eee; padding:16px; width:260px; border-radius:10px; text-align:center; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+.ms-doctor-card img { width:120px; height:120px; object-fit:cover; border-radius:50%; margin-bottom:10px; }
+.ms-doctor-card h3 { margin:8px 0 4px 0; }
+.ms-doctor-card p { color:#666; margin:0; }

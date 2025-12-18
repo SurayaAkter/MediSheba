@@ -1,0 +1,63 @@
+# MediSheba (Final Project)
+
+This project is a Flask-based e-pharmacy + appointment app assembled from the provided files.
+
+## Quick checklist (what's included)
+- `app.py` (Flask app)
+- `start.py` (entry script that reads DATABASE_URL env var)
+- `requirements.txt`
+- `medisheba.sql` (MySQL dump)
+- `templates/` and `static/` (frontend assets)
+- Dockerfile & docker-compose.yml (optional)
+- `.env.example` (copy to `.env` and edit)
+
+---
+## Run locally in VS Code (recommended)
+1. Open the project folder in VS Code: `File -> Open Folder -> MediSheba`
+2. Create and activate a Python virtual environment (in terminal):
+   - macOS / Linux:
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+   - Windows (PowerShell):
+     ```powershell
+     python -m venv venv
+     .\venv\Scripts\Activate.ps1
+     ```
+3. Install dependencies:
+   ```bash
+   pip install --upgrade pip
+   pip install -r requirements.txt
+   ```
+4. Create a local MySQL database and import the dump:
+   ```bash
+   mysql -u root -p
+   CREATE DATABASE medisheba;
+   EXIT
+   mysql -u root -p medisheba < medisheba.sql
+   ```
+5. Copy `.env.example` to `.env` and set your credentials (DB, secrets):
+   ```bash
+   cp .env.example .env
+   # edit .env in VS Code
+   ```
+6. Run the app (from terminal or use VS Code Run):
+   ```bash
+   export DATABASE_URL="mysql://root:root@localhost/medisheba"  # or set in .env
+   python start.py
+   ```
+7. Open browser: http://localhost:5000
+
+---
+## Run with Docker (alternative)
+```bash
+docker-compose up --build
+```
+This starts a MySQL 5.7 container and the web service. Web is mapped to port 5000.
+
+---
+## VS Code launch configuration
+I added a `.vscode/launch.json` so you can run and debug `start.py` directly.
+
+Open Run -> Start Debugging (F5) and choose "Python: Flask (start.py)".

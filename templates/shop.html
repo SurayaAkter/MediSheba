@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}Shop{% endblock %}
+{% block shop_active %}active{% endblock %}
+{% block body %}
+<div class="Products">
+    <div class="Product">
+
+        <div class="Search">
+            <form id="search" action="{{ url_for('search_products') }}" method="post">
+                <input type="text" name="search_query" placeholder="Search...">
+                <button type="submit" value="Search">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </form>
+        </div>
+        <br><br />
+
+        <!-- CARD BEGIN -->
+
+        <div class="Card">
+
+            {% for product in products %}
+
+            <div class="Product-card">
+                <a href="{{ url_for('view_product', product_id=product.productID) }}">
+                <img class="PlaceholderImage-shop"
+                    src="{{ url_for('static', filename='images/shop/' + product.Description.lower() + '.png') }}"
+                    loading="lazy" />
+                <div class="Content-card">
+                    <div class="Header-card">
+                        <div class="Heading-card">
+                            {{ product.BrandName }}
+                        </div>
+                        <div class="Text-card">
+                            {{ product.Strength }}
+                        </div>
+                    </div>
+                    <div class="Price">
+                        ৳{{ product.Price }}
+                    </div>
+                </div>
+                </a>
+                <div class="form-shop">
+                    <form action="{{ url_for('add_to_cart', product_id=product.productID, redirect_url=request.url) }}"
+                        method="post">
+                        <div class="form-group">
+                            <input class="Button-container-card" type="number" name="quantity" value="1" min="1">
+                        </div>
+                        <div class="form-group">
+                            <button class="Button-container-card" type="submit" value="Add to Cart">
+                                <div class="Button-card">
+                                    Add to cart
+                                </div>
+                                <span class="material-symbols-outlined">
+                                    add_shopping_cart
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+        <!-- CARD END -->
+
+        
+    </div>
+</div>
+{% endblock %}

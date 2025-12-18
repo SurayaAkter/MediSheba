@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block title %}Diagnosis{% endblock %}
+{% block Diagnosis_active %}active{% endblock %}
+{% block body %}
+
+<div class="container" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+
+    <!-- SEARCH FORM -->
+    <form action="{{ url_for('Diagnosis_Search') }}" method="GET"
+          style="margin-bottom:20px; text-align:center;">
+
+        <input type="text" name="name" placeholder="Doctor name">
+        <input type="text" name="speciality" placeholder="Speciality">
+
+        <select name="availability">
+            <option value="">Any Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <h1 style="text-align: center;">Search Results</h1>
+
+    {% set booked = user_appointments if user_appointments is defined else [] %}
+
+    {% if search_results and search_results|length > 0 %}
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align:center;">
+        <tr style="background: #f2f2f2;">
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Speciality</th>
+            <th>Gender</th>
+            <th>Experience</th>
+            <th>Action</th>
+        </tr>
+
+        {% for doctor in search_results %}
+        <tr style="border-bottom: 1px solid #ddd;">
+
+            <!-- PHOTO -->
+            <td>
+                <img src="{{ doctor.image_url }}"
+                     style="width:60px;height:60px;border-radius:50%;object-fit:cover;">
+            </td>
+
+            <!-- DETAILS -->
+            <td>{{ doctor.Name }}</td>
+            <td>{{ doctor.speciality }}</td>
+            <td>{{ doctor.Gender }}</td>
+            <td>{{ doctor.Experience }} years</td>
+
+            <!-- ACTION -->
+            <td>
+                {% if doctor.id in booked %}
+                    <form action="{{ url_for('remove_appointment', doctor_id=doctor.id) }}" method="post">
+                        <button style="background:red;color:white;padding:6px 12px;border:none;">
+                            Remove
+                        </button>
+                    </form>
+                {% else %}
+                    <form action="{{ url_for('appointment_book', doctor_id=doctor.id) }}" method="get">
+                        <button style="background:green;color:white;padding:6px 12px;border:none;">
+                            Appointment
+                        </button>
+                    </form>
+                {% endif %}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+        <p style="text-align:center;margin-top:30px;color:red;">
+            No doctor found for your search.
+        </p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

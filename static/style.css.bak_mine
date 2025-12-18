@@ -1,0 +1,76 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+  .container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+  }
+  form {
+    margin-top: 20px;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  input[type="submit"] {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+
+  /* Continue your existing CSS styles here */
+
+/* Styles for the select element */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the login button */
+input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 12px 20px;
+}
+
+/* Additional styles for the link */
+a {
+  text-decoration: none;
+  color: #000;
+  display: block; /* Make the link a block element to occupy the full width */
+  text-align: center; /* Center-align the link text */
+  margin-top: 10px; /* Add some space above the link */
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Container style */
+.container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

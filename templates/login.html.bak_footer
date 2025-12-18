@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MediSheba</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <h1>{{error}}</h1>
+    <form action="/login" method="post">
+      <!-- <form action="#" method="post"></form> -->
+      <form method="POST" action="/register">
+        <label for="user_type">Select User Type:</label>
+        <select name="user_type" id="user_type">
+            <option value="user">Regular User</option>
+            <option value="admin">Admin User</option>
+        </select><br><br>
+
+        
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Log In">
+    </form>
+    <!-- <a href="/signup">Don't have an account? Sign Up</a> -->
+    <a href="/To_Signup">Don't have an account? Sign Up</a>
+  </div>
+</body>
+</html>

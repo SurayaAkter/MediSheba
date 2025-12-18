@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediSheba</title>
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    
+    form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        outline: none;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }</style>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form method="POST" action="/register">
+        <label for="user_type">Select User Type:</label>
+        <select name="user_type" id="user_type">
+            <option value="regular">Regular User</option>
+            <option value="admin">Admin User</option>
+        </select><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+<footer style="margin-top:40px; text-align:center; padding:20px; background:#f3f3f3;">
+  Developed by <strong>Suraiya Akter Sammi</strong> © 2025 | Contact: 01650206874
+</footer>
+
+</body>
+</html>
